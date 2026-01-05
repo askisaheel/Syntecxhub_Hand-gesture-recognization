@@ -8,11 +8,11 @@ A lightweight real-time hand-gesture controller that uses your webcam to control
 - Provides a simple Flask web interface with a live camera feed and activation button.
 
 ## Supported gestures
-- Pointing Up (index finger) — Increase volume
-- Fist (all fingers closed) — Decrease volume
-- Peace (index + middle) — Play / Pause media
-- Open Palm (all fingers up) — Mute toggle
-- OK sign — Gesture detected / extra action
+- Pointing Up (index finger) - Increase volume
+- Fist (all fingers closed) - Decrease volume
+- Peace (index + middle) - Play / Pause media
+- Open Palm (all fingers up) - Mute toggle
+- OK sign - Gesture detected / extra action
 
 ## Tech stack
 - Python
