@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AI Gesture Controller</title>
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: white;
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+      }
+      .container {
+        margin-top: 30px;
+      }
+      .video-box {
+        border: 5px solid #333;
+        border-radius: 15px;
+        width: 80%;
+        max-width: 800px;
+        background-color: #000;
+      }
+      .active-border {
+        border-color: #00ff7f;
+        box-shadow: 0 0 20px #00ff7f;
+      }
+      h1 {
+        color: #00ff7f;
+        margin-bottom: 10px;
+      }
+
+      .controls {
+        margin: 20px;
+      }
+      button {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        border: none;
+        margin: 10px;
+        transition: 0.3s;
+      }
+      .btn-start {
+        background-color: #00ff7f;
+        color: #000;
+      }
+      .btn-start:hover {
+        background-color: #00cc66;
+      }
+      .btn-stop {
+        background-color: #ff4444;
+        color: white;
+      }
+      .btn-stop:hover {
+        background-color: #cc0000;
+      }
+
+      .status-panel {
+        font-size: 20px;
+        color: #aaa;
+        margin-top: 10px;
+      }
+      .led {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>AI GESTURE INTERFACE</h1>
+
+      <div class="controls">
+        <button class="btn-start" onclick="location.href='/start'">
+          ACTIVATE SYSTEM
+        </button>
+        <button class="btn-stop" onclick="location.href='/stop'">
+          DEACTIVATE
+        </button>
+      </div>
+
+      <div class="status-panel">
+        <span
+          class="led"
+          style="background-color: {{ 'green' if active else 'red' }}"
+        ></span>
+        Status: <strong>{{ 'RUNNING' if active else 'IDLE' }}</strong>
+      </div>
+
+      <br />
+      {% if active %}
+      <img src="{{ url_for('video_feed') }}" class="video-box active-border" />
+      {% else %}
+      <div
+        class="video-box"
+        style="
+          height: 450px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+        "
+      >
+        <p>System Offline. Click Activate to Start Camera.</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
